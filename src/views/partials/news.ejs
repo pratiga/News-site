@@ -4,22 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
+    
 </head>
 <body>
-    <h1>Node.js News</h1>
+    <header class="header">
+        <div class="header__logo">Node.js News</div>
+        <div class="header__search">Search</div>
+    </header>
+   
+    <div class="wrapper">
+        <div class="news">
+        <%  if(articles != null) { %> 
     
     <% articles.forEach(function(article, index) { %> 
-    <a href="#" class="news_card">
-         <img src="<%- article.urlToImage %> "  -->
-        alt="<%- article.title.rendered %> ">
+    <a href="#" class="news__card">
+    <div class="news__container">
+    <div class="news__img">
+         <img src="<%- article.urlToImage %> "  
+        alt="<%- article.title.rendered %> " >
+    </div>
+    <div class="news__title">
         <h2><%- article.title %></h2> 
-        <p><%- article.description %> </p>
-        <p><%- article.content %> </p>
-         <p><%- article.author %> </p>
-        <p><%- article.publishedAt %> </p>
+        </div>
+         <div class="news_author" ><%- article.author %> </div>
+        <div class="news_publish"><%- article.publishedAt %> </div>
+     </div>
      </a> 
     <% }) %> 
+    <%  } else { %>
+        no post.found      
+      <% } %>         
+  </div>
+</div>
 </body>
 </html>
 
